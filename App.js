@@ -20,6 +20,14 @@ export default function App() {
     >
       <Stack.Navigator>
         <Stack.Screen
+          name="Register"
+          component={Register}
+          options={{
+            title: "Register",
+            headerShown: false
+          }}
+        />
+        <Stack.Screen
           name='Login'
           component={Login}
           options={{
@@ -27,7 +35,7 @@ export default function App() {
             headerShown: false
           }}
         />
-        {/* <Stack.Screen
+        <Stack.Screen
           name='Home'
           component={Home}
           options={{
@@ -36,12 +44,9 @@ export default function App() {
           }}
 
 
-        /> */}
-
-        <Stack.Screen
-          name="Register"
-          component={Register}
         />
+
+
         <Stack.Screen
           name="RegisterEmployee"
           component={RegisterEmployee}
