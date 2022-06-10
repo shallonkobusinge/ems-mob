@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet } from 'react-native'
 import React, { useState } from 'react'
 import Navbar from '../components/Navbar';
-// import Select from 'react-select';
+import Select from 'react-select';
 import axios from 'axios';
 
 const options = [
@@ -24,14 +24,14 @@ export default function RegisterEmployee() {
             <View style={styles.container}>
                 <Text style={styles.heading}>Register Employee</Text>
                 <View>
-                    <Select
+                    {/* <Select
                         options={options}
                         name="user"
                     />
                     <Select
                         options={options}
                         name="department"
-                    />
+                    /> */}
                 </View>
             </View>
         </Navbar>

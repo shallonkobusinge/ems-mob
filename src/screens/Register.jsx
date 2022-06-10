@@ -20,7 +20,7 @@ export default function Register({ navigation }) {
         axios.post("http://192.168.0.96:5000/api/v1/users/add", formData)
             .then(response => {
                 navigation.navigate("Login")
-                console.log("Registered");
+
             })
             .catch((error) => {
 

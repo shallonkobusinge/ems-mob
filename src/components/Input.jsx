@@ -17,6 +17,7 @@ export default function Input({
                 style={styles.textInput}
                 name={name}
                 onChangeText={(event) => { InputHandler(name, event) }}
+                secureTextEntry={name === "password" ? true : false}
             />
         </View>
     )
