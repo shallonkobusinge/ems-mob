@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
 import Input from '../components/Input';
@@ -47,7 +47,18 @@ export default function Login({ navigation }) {
 
                     <Button
                         SubmitData={handleSubmit}
+                        title="Submit"
                     />
+
+                    <View style={styles.redirect}>
+                        <TouchableOpacity
+                            onPress={() => { navigation.navigate("Register") }}
+                            style={styles.touchable}
+                        >
+                            <Text>Don't have an account ?  </Text>
+                            <Text style={styles.registerText}>Register</Text>
+                        </TouchableOpacity>
+                    </View>
                 </View>
             </View>
         </Navbar>
@@ -66,6 +77,19 @@ const styles = StyleSheet.create({
         textTransform: "uppercase",
         fontSize: 25,
         fontWeight: "bold",
+    },
+    redirect: {
+        alignItems: "center",
+        justifyContent: "center",
+        paddingTop: 20
+
+    },
+    touchable: {
+        display: "flex",
+        flexDirection: 'column'
+    },
+    registerText: {
+        color: "#496CE8"
     }
 
 })

@@ -1,28 +1,46 @@
-import { View, Text, Button, StyleSheet } from 'react-native'
+import { View, Text, Button, StyleSheet, Image, TouchableOpacity } from 'react-native'
 import React from 'react'
 import Navbar from '../components/Navbar'
 
 
 export default function Home({ navigation }) {
     return (
-        <Navbar>
-            <Text>Home Page</Text>
-        </Navbar>
+        // <Navbar>
+        <View style={styles.container}>
+            <TouchableOpacity
+                style={styles.item}
+                activeOpacity={0.75}
+            >
+                <Image
+                    source={require("../../assets/images/avatar.jpg")}
+                    style={styles.image}
+                    resizeMode='contain'
+                />
+            </TouchableOpacity>
+        </View>
+        // </Navbar>
     )
 }
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: "#496CE8",
+        height: "100%",
+        backgroundColor: "orange",
         flex: 1,
-        justifyContent: "center",
+        backgroundColor: "white",
 
 
     },
-    main: {
-        backgroundColor: "white",
-        height: "80%",
-        marginTop: 10,
-        // borderRadius: 20
+    item: {
+        flex: 1,
+        overflow: 'hidden',
+        alignItems: 'center',
+        marginTop: 100
+    },
+    image: {
+        marginTop: 30,
+        height: "30%",
+        width: "80%",
+        borderRadius: 100
     }
 })

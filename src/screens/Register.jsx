@@ -1,23 +1,30 @@
-import { View, Text, StyleSheet, ScrollView } from 'react-native'
+import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-native'
 import React, { useState } from 'react'
 import Navbar from '../components/Navbar'
 import Input from '../components/Input'
 import Button from '../components/Button'
 import axios from 'axios'
 
-export default function Register() {
+export default function Register({ navigation }) {
     const [formData, setFormData] = useState({});
 
 
-    const handleInput = (event) => {
+    const handleInput = (name, value) => {
         setFormData({
             ...formData,
-            [event.target.name]: event.target.value
+            [name]: value
         })
     }
 
     const handleSubmit = () => {
+        axios.post("http://192.168.0.96:5000/api/v1/users/add", formData)
+            .then(response => {
+                navigation.navigate("Login")
+                console.log("Registered");
+            })
+            .catch((error) => {
 
+            })
     }
 
     return (
@@ -68,7 +75,20 @@ export default function Register() {
 
                     />
 
-                    <Button />
+                    <Button
+                        SubmitData={handleSubmit}
+                        title="Submit"
+                    />
+
+                    <View style={styles.redirect}>
+                        <TouchableOpacity
+                            onPress={() => { navigation.navigate("Login") }}
+                            style={styles.touchable}
+                        >
+                            <Text>Already have an account ?  </Text>
+                            <Text style={styles.registerText}>Login</Text>
+                        </TouchableOpacity>
+                    </View>
                 </View>
             </ScrollView>
         </Navbar>
@@ -87,6 +107,19 @@ const styles = StyleSheet.create({
         textTransform: "uppercase",
         fontSize: 25,
         fontWeight: "bold",
+    },
+    redirect: {
+        alignItems: "center",
+        justifyContent: "center",
+        paddingTop: 20
+
+    },
+    touchable: {
+        display: "flex",
+        flexDirection: 'column'
+    },
+    registerText: {
+        color: "#496CE8"
     }
 
 })

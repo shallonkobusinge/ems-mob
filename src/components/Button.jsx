@@ -1,7 +1,7 @@
 import { View, Text, Button, StyleSheet, TouchableOpacity } from 'react-native'
 import React from 'react'
 
-export default function ButtonComponent({ navigation, SubmitData }) {
+export default function ButtonComponent({ navigation, SubmitData, title }) {
     return (
         <View style={styles.container}>
             <TouchableOpacity
@@ -12,7 +12,7 @@ export default function ButtonComponent({ navigation, SubmitData }) {
             >
                 <Text
                     style={styles.buttonText}
-                >Submit</Text>
+                >{title}</Text>
 
             </TouchableOpacity>
         </View>

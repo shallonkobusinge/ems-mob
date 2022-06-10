@@ -11,7 +11,6 @@ import ViewEmployees from './src/screens/ViewEmployees';
 
 
 
-
 const Stack = createNativeStackNavigator();
 
 export default function App() {
@@ -19,22 +18,6 @@ export default function App() {
     <NavigationContainer
     >
       <Stack.Navigator>
-        <Stack.Screen
-          name='Login'
-          component={Login}
-          options={{
-            title: 'Login',
-            headerShown: false
-          }}
-        />
-        {/* <Stack.Screen
-          name="Register"
-          component={Register}
-          options={{
-            title: "Register",
-            headerShown: false
-          }}
-        /> */}
 
         <Stack.Screen
           name='Home'
@@ -46,6 +29,23 @@ export default function App() {
 
 
         />
+        <Stack.Screen
+          name="Register"
+          component={Register}
+          options={{
+            title: "Register",
+            headerShown: false
+          }}
+        />
+        <Stack.Screen
+          name='Login'
+          component={Login}
+          options={{
+            title: 'Login',
+            headerShown: false
+          }}
+        />
+
 
 
         <Stack.Screen
@@ -56,6 +56,8 @@ export default function App() {
           name="ViewEmployees"
           component={ViewEmployees}
         />
+
+
       </Stack.Navigator>
     </NavigationContainer>
 
