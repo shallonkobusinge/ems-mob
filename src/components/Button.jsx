@@ -1,13 +1,14 @@
 import { View, Text, Button, StyleSheet, TouchableOpacity } from 'react-native'
 import React from 'react'
 
-export default function ButtonComponent({ navigation }) {
+export default function ButtonComponent({ navigation, SubmitData }) {
     return (
         <View style={styles.container}>
             <TouchableOpacity
 
                 style={styles.button}
                 underlayColor='#fff'
+                onPress={SubmitData}
             >
                 <Text
                     style={styles.buttonText}

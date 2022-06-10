@@ -4,13 +4,19 @@ import React from 'react'
 
 export default function Input({
     label,
+    name,
+    InputHandler
 }) {
+
+
     return (
         <View style={styles.container}>
 
             <Text style={styles.label}>{label}</Text>
             <TextInput
                 style={styles.textInput}
+                name={name}
+                onChangeText={(event) => { InputHandler(name, event) }}
             />
         </View>
     )
