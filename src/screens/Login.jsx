@@ -1,4 +1,5 @@
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
 import Input from '../components/Input';
@@ -17,10 +18,11 @@ export default function Login({ navigation }) {
     }
 
     const handleSubmit = () => {
-        axios.post("http://192.168.0.96:5000/api/v1/users/login", formData)
+        axios.post("http://192.168.0.156:5000/api/v1/users/login", formData)
             .then((response) => {
                 toast.success("Logged in successfully")
-                console.log(response);
+                AsyncStorage.setItem("token", JSON.stringify(response.data.token))
+
                 navigation.navigate("Home")
             }).catch((error) => {
                 toast.error("Couldn't log in'")

@@ -24,7 +24,7 @@ export default function Home({ navigation }) {
 
                 <TouchableOpacity
                     style={styles.selectionText}
-                    onPress={() => { navigation.navigate("Login") }}
+                    onPress={() => { navigation.navigate("ViewEmployees") }}
                 >
                     <Text
                         style={styles.employeesText}
@@ -34,7 +34,7 @@ export default function Home({ navigation }) {
                 <TouchableOpacity
                     style={styles.selectionText}
 
-                    onPress={() => { navigation.navigate("Register") }}
+                    onPress={() => { navigation.navigate("RegisterEmployee") }}
                 >
                     <Text
                         style={styles.employeesText}
