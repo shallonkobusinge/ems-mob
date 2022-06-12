@@ -6,9 +6,21 @@ import Input from '../components/Input';
 import Button from '../components/Button';
 import axios from 'axios';
 import { toast, ToastContainer } from 'react-toastify';
+import { useEffect } from 'react';
+
+async function storeToken(user) {
+    await AsyncStorage.setItem("token", JSON.stringify(user));
+
+}
+
+async function getToken() {
+    return await AsyncStorage.getItem("token");
+}
 
 export default function Login({ navigation }) {
     const [formData, setFormData] = useState({});
+    const [token, setToken] = useState("")
+    const [loginSuccess, setLoginSuccess] = useState(false);
     const handleInput = (name, value) => {
         setFormData({
             ...formData,
@@ -16,12 +28,24 @@ export default function Login({ navigation }) {
         })
         console.log(formData);
     }
+    useEffect(() => {
+        const changeToken = async () => {
+            await storeToken(token);
+        }
+        changeToken();
+        console.log("token", token);
+    }, [loginSuccess])
 
-    const handleSubmit = () => {
-        axios.post("http://192.168.0.156:5000/api/v1/users/login", formData)
+
+
+    const handleSubmit = async () => {
+        await axios.post("http://192.168.0.156:5000/api/v1/users/login", formData)
             .then((response) => {
                 toast.success("Logged in successfully")
-                AsyncStorage.setItem("token", JSON.stringify(response.data.token))
+                // AsyncStorage.setItem("token", JSON.stringify(response.data.token))
+
+                setLoginSuccess(true);
+                setToken(response.data.token);
 
                 navigation.navigate("Home")
             }).catch((error) => {

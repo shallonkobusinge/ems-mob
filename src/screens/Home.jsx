@@ -24,7 +24,7 @@ export default function Home({ navigation }) {
 
                 <TouchableOpacity
                     style={styles.selectionText}
-                    onPress={() => { navigation.navigate("ViewEmployees") }}
+                    onPress={() => { navigation.navigate("Login") }}
                 >
                     <Text
                         style={styles.employeesText}
