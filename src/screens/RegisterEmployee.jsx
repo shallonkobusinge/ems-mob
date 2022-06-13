@@ -19,10 +19,17 @@ export default function RegisterEmployee() {
 
     const fetchEmployees = async () => {
         const auth = AsyncStorage.getItem("token");
-        await axios.get("http://192.168.0.156:5000/api/v1/employess", {
+        await axios.get("http://192.168.0.213:5000/api/v1/employess", {
             headers: authHeader()
+        }).then((response) => {
+            console.log(response);
+        }).catch((error) => {
+            console.log(error);
         })
-        console.log(AsyncStorage.getItem("token"));
+
+    }
+    const SelectHandler = async () => {
+        console.log("Token", await AsyncStorage.getItem("token"));
     }
     useEffect(() => {
         fetchEmployees()
@@ -34,6 +41,7 @@ export default function RegisterEmployee() {
                 <Text style={styles.heading}>Register Employee</Text>
                 <View>
                     <RNPickerSelect
+                        onValueChange={SelectHandler}
                         items={options}
 
 

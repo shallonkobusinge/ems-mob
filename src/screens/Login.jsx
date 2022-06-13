@@ -28,25 +28,22 @@ export default function Login({ navigation }) {
         })
         console.log(formData);
     }
+
     useEffect(() => {
         const changeToken = async () => {
             await storeToken(token);
         }
         changeToken();
         console.log("token", token);
-    }, [loginSuccess])
+    }, [token])
 
 
 
     const handleSubmit = async () => {
-        await axios.post("http://192.168.0.156:5000/api/v1/users/login", formData)
+        await axios.post("http://192.168.0.213:5000/api/v1/users/login", formData)
             .then((response) => {
-                toast.success("Logged in successfully")
-                // AsyncStorage.setItem("token", JSON.stringify(response.data.token))
-
                 setLoginSuccess(true);
-                setToken(response.data.token);
-
+                setToken(response.data.token)
                 navigation.navigate("Home")
             }).catch((error) => {
                 toast.error("Couldn't log in'")
