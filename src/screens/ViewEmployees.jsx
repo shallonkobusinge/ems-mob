@@ -30,42 +30,58 @@ export default function ViewEmployees() {
 
     return (
         <Navbar>
-            <ScrollView style={styles.container}>
-                {employees.map((item, index) => (
-                    <>
-                        <View style={styles.card}>
-                            <View style={styles.main}>
-                                <Text>First Name</Text>
-                                <Text>{item.fname}</Text>
+            <View style={styles.menu}>
+                <Text style={styles.heading}>View Employees</Text>
+                <ScrollView style={styles.container}>
+                    {employees.map((item, index) => (
+                        <>
+                            <View style={styles.card}>
+                                <View style={styles.main}>
+                                    <Text style={styles.userText}>First Name</Text>
+                                    <Text>{item.fname}</Text>
+                                </View>
+                                <View style={styles.main}>
+                                    <Text style={styles.userText}>Last Name</Text>
+                                    <Text style={styles.userText}>{item.lname}</Text>
+                                </View>
+                                <View style={styles.main}>
+                                    <Text>Email</Text>
+                                    <Text>{item.email}</Text>
+                                </View>
+                                <View style={styles.main}>
+                                    <Text>Phone</Text>
+                                    <Text>{item.phone}</Text>
+                                </View>
+                                <View style={styles.main}>
+                                    <Text>Is Admin</Text>
+                                    <Text>{item.isAdmin}</Text>
+                                </View>
                             </View>
-                            <View style={styles.main}>
-                                <Text>Last Name</Text>
-                                <Text>{item.lname}</Text>
-                            </View>
-                            <View style={styles.main}>
-                                <Text>Email</Text>
-                                <Text>{item.email}</Text>
-                            </View>
-                            <View style={styles.main}>
-                                <Text>Phone</Text>
-                                <Text>{item.phone}</Text>
-                            </View>
-                            <View style={styles.main}>
-                                <Text>Is Admin</Text>
-                                <Text>{item.isAdmin}</Text>
-                            </View>
-                        </View>
 
-                    </>
-                ))}
+                        </>
+                    ))}
 
-            </ScrollView>
+                </ScrollView>
+            </View>
+
         </Navbar>
 
     )
 }
 
 const styles = StyleSheet.create({
+    menu: {
+        // marginTop: 40,
+        marginLeft: "auto",
+        marginRight: "auto",
+
+    },
+    heading: {
+        textAlign: "center",
+        textTransform: "uppercase",
+        fontSize: 25,
+        fontWeight: "bold",
+    },
     container: {
         paddingLeft: 20,
         // flex: 1,
@@ -86,5 +102,8 @@ const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'row',
         justifyContent: "space-around",
+    },
+    userText: {
+        textAlign: "left"
     }
 })
