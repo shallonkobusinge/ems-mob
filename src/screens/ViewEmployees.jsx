@@ -33,26 +33,29 @@ export default function ViewEmployees() {
             <ScrollView style={styles.container}>
                 {employees.map((item, index) => (
                     <>
-                        <View style={styles.main}>
-                            <Text>First Name</Text>
-                            <Text>{item.fname}</Text>
+                        <View style={styles.card}>
+                            <View style={styles.main}>
+                                <Text>First Name</Text>
+                                <Text>{item.fname}</Text>
+                            </View>
+                            <View style={styles.main}>
+                                <Text>Last Name</Text>
+                                <Text>{item.lname}</Text>
+                            </View>
+                            <View style={styles.main}>
+                                <Text>Email</Text>
+                                <Text>{item.email}</Text>
+                            </View>
+                            <View style={styles.main}>
+                                <Text>Phone</Text>
+                                <Text>{item.phone}</Text>
+                            </View>
+                            <View style={styles.main}>
+                                <Text>Is Admin</Text>
+                                <Text>{item.isAdmin}</Text>
+                            </View>
                         </View>
-                        <View style={styles.main}>
-                            <Text>Last Name</Text>
-                            <Text>{item.lname}</Text>
-                        </View>
-                        <View style={styles.main}>
-                            <Text>Email</Text>
-                            <Text>{item.email}</Text>
-                        </View>
-                        <View style={styles.main}>
-                            <Text>Phone</Text>
-                            <Text>{item.phone}</Text>
-                        </View>
-                        <View style={styles.main}>
-                            <Text>Is Admin</Text>
-                            <Text>{item.isAdmin}</Text>
-                        </View>
+
                     </>
                 ))}
 
@@ -65,19 +68,23 @@ export default function ViewEmployees() {
 const styles = StyleSheet.create({
     container: {
         paddingLeft: 20,
-        flex: 1,
+        // flex: 1,
         borderRadius: 30,
+    },
+    card: {
+        paddingTop: 8,
+        backgroundColor: "white",
+        marginTop: 10,
+        height: 150,
+        width: 370,
+        paddingTop: 20,
+        textAlign: 'left',
+        elevation: 20,
+        borderRadius: 10
     },
     main: {
         display: 'flex',
         flexDirection: 'row',
         justifyContent: "space-around",
-
-        paddingTop: 8,
-        textAlign: 'justify',
-        backgroundColor: "orange",
-        width: 370,
-        height: 120,
-
     }
 })
