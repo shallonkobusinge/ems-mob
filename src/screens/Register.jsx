@@ -17,7 +17,7 @@ export default function Register({ navigation }) {
     }
 
     const handleSubmit = () => {
-        axios.post("http://192.168.0.213:5000/api/v1/users/add", formData)
+        axios.post("http://192.168.0.220:5000/api/v1/users/add", formData)
             .then(response => {
                 navigation.navigate("Login")
 

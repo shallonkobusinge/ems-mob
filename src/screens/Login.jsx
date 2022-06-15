@@ -34,13 +34,12 @@ export default function Login({ navigation }) {
             await storeToken(token);
         }
         changeToken();
-        console.log("token", token);
     }, [token])
 
 
 
     const handleSubmit = async () => {
-        await axios.post("http://192.168.0.213:5000/api/v1/users/login", formData)
+        await axios.post("http://192.168.0.220:5000/api/v1/users/login", formData)
             .then((response) => {
                 setLoginSuccess(true);
                 setToken(response.data.token)
