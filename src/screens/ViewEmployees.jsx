@@ -71,7 +71,6 @@ export default function ViewEmployees() {
 
 const styles = StyleSheet.create({
     menu: {
-        // marginTop: 40,
         marginLeft: "auto",
         marginRight: "auto",
 
@@ -84,7 +83,6 @@ const styles = StyleSheet.create({
     },
     container: {
         paddingLeft: 20,
-        // flex: 1,
         borderRadius: 30,
     },
     card: {

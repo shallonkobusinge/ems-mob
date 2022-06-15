@@ -83,16 +83,22 @@ export default function RegisterEmployee() {
             <View style={styles.container}>
                 <Text style={styles.heading}>Register Employee</Text>
                 <View>
-                    <Select
-                        options={options}
-                        SelectHandler={SelectHandler}
-                        name="user"
-                    />
-                    <Select
-                        options={departmentOptions}
-                        SelectHandler={SelectHandler}
-                        name="department"
-                    />
+                    <View style={styles.select}>
+                        <Select
+                            options={options}
+                            SelectHandler={SelectHandler}
+                            name="user"
+                            label="Select the user"
+                        />
+                    </View>
+                    <View style={styles.select}>
+                        <Select
+                            options={departmentOptions}
+                            SelectHandler={SelectHandler}
+                            name="department"
+                            label="Select the department"
+                        />
+                    </View>
                 </View>
                 <ButtonComponent
                     SubmitData={handleSubmit}
@@ -115,6 +121,9 @@ const styles = StyleSheet.create({
         textTransform: "uppercase",
         fontSize: 25,
         fontWeight: "bold",
-    }
+    },
+    select: {
+        marginTop: 30
+    },
 
 })
