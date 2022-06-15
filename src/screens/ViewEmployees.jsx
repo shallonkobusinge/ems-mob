@@ -38,23 +38,23 @@ export default function ViewEmployees() {
                             <View style={styles.card}>
                                 <View style={styles.main}>
                                     <Text style={styles.userText}>First Name</Text>
-                                    <Text>{item.fname}</Text>
+                                    <Text style={styles.userTextValue}>{item.fname}</Text>
                                 </View>
                                 <View style={styles.main}>
                                     <Text style={styles.userText}>Last Name</Text>
-                                    <Text style={styles.userText}>{item.lname}</Text>
+                                    <Text style={styles.userTextValue}>{item.lname}</Text>
                                 </View>
                                 <View style={styles.main}>
-                                    <Text>Email</Text>
-                                    <Text>{item.email}</Text>
+                                    <Text style={styles.userText}>Email</Text>
+                                    <Text style={styles.userTextValue}>{item.email}</Text>
                                 </View>
                                 <View style={styles.main}>
-                                    <Text>Phone</Text>
-                                    <Text>{item.phone}</Text>
+                                    <Text style={styles.userText}>Phone</Text>
+                                    <Text style={styles.userTextValue}>{item.phone}</Text>
                                 </View>
                                 <View style={styles.main}>
-                                    <Text>Is Admin</Text>
-                                    <Text>{item.isAdmin}</Text>
+                                    <Text style={styles.userText}>Is Admin</Text>
+                                    <Text style={styles.userTextValue}>{item.isAdmin === true ? "YES" : "NO"}</Text>
                                 </View>
                             </View>
 
@@ -104,6 +104,9 @@ const styles = StyleSheet.create({
         justifyContent: "space-around",
     },
     userText: {
-        textAlign: "left"
+        textAlign: 'center'
+    },
+    userTextValue: {
+        width: 120
     }
 })
