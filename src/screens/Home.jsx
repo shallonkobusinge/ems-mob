@@ -1,9 +1,15 @@
-import { View, Text, Button, StyleSheet, Image, TouchableOpacity } from 'react-native'
+import { View, Text, Button, StyleSheet, Image, TouchableOpacity, Alert } from 'react-native'
 import React from 'react'
 import Navbar from '../components/Navbar'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 
 
 export default function Home({ navigation }) {
+    const handleLogout = () => {
+        AsyncStorage.removeItem("token")
+        Alert.alert("Logout", "User logged out successfully")
+        setTimeout(() => { navigation.navigate("Login") }, 300)
+    }
     return (
 
         <View style={styles.container}>
@@ -39,6 +45,15 @@ export default function Home({ navigation }) {
                     <Text
                         style={styles.employeesText}
                     >Add Employee</Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity
+                    style={styles.selectionText}
+                    onPress={handleLogout}
+                >
+                    <Text
+                        style={styles.employeesText}
+                    >Logout</Text>
                 </TouchableOpacity>
             </View>
         </View>
@@ -78,7 +93,7 @@ const styles = StyleSheet.create({
     },
     selectionText: {
         width: "50%",
-        height: "18%",
+        height: "14%",
         marginTop: 10,
         backgroundColor: "#EEF2FF"
     },

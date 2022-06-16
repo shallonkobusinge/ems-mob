@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-native'
+import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Alert } from 'react-native'
 import React, { useState } from 'react'
 import Navbar from '../components/Navbar'
 import Input from '../components/Input'
@@ -19,7 +19,8 @@ export default function Register({ navigation }) {
     const handleSubmit = () => {
         axios.post("http://192.168.0.220:5000/api/v1/users/add", formData)
             .then(response => {
-                navigation.navigate("Login")
+                Alert.alert("Signup", "User added successfully");
+                setTimeout(() => { navigation.navigate("Login") }, 300)
 
             })
             .catch((error) => {

@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Alert } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
@@ -42,8 +42,9 @@ export default function Login({ navigation }) {
         await axios.post("http://192.168.0.220:5000/api/v1/users/login", formData)
             .then((response) => {
                 setLoginSuccess(true);
-                setToken(response.data.token)
-                navigation.navigate("Home")
+                setToken(response.data.token);
+                Alert.alert("Login", "User logged in successfully");
+                setTimeout(() => { navigation.navigate("Home") }, 300)
             }).catch((error) => {
                 toast.error("Couldn't log in'")
             })

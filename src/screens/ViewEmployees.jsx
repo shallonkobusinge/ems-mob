@@ -105,6 +105,7 @@ const styles = StyleSheet.create({
         textAlign: 'center'
     },
     userTextValue: {
-        width: 120
+        width: 120,
+        textAlign: 'center'
     }
 })
