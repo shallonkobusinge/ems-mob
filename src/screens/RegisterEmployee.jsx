@@ -22,12 +22,12 @@ export default function RegisterEmployee() {
         { value: "Finance", label: "Finance" },
     ]
 
-    const token = key.split('"').join('')
+    const token = JSON.parse(key);
 
 
     const fetchEmployees = async () => {
         const auth = await AsyncStorage.getItem("token");
-        const token = auth.split('"').join('')
+        const token = JSON.parse(auth);
         setKey(auth);
         axios.get("http://192.168.0.220:5000/api/v1/users", {
             headers: {

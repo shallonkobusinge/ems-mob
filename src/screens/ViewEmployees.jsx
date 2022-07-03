@@ -13,7 +13,7 @@ export default function ViewEmployees() {
 
     const fetchEmployees = async () => {
         const token = await AsyncStorage.getItem("token")
-        const auth = token.split('"').join('')
+        const auth = JSON.parse(token);
         axios.get("http://192.168.0.220:5000/api/v1/users", {
             headers: {
                 'authorization': `${auth}`

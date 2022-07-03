@@ -49,6 +49,8 @@ export default function Login({ navigation }) {
                 toast.error("Couldn't log in'")
             })
     }
+
+
     return (
         <Navbar>
             <View style={styles.container}>
